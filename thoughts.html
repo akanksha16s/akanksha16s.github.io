@@ -5,155 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>akanksha writes | thoughts</title>
     <style>
-        :root {
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --secondary: #666666;
-            --border: #eaeaea;
-        }
+        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 600; }
+        
+        header h1 { font-size: 2.5rem; margin-bottom: 40px; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        nav {
+        /* The List Style */
+        .post-list { list-style: none; padding: 0; }
+        .post-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 80px;
+            align-items: baseline;
+            padding: 15px 0;
+            border-bottom: 1px solid #f9f9f9;
         }
-
-        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-
-        .nav-links a {
-            margin-left: 20px;
+        .post-item a {
             text-decoration: none;
-            color: var(--secondary);
-            font-size: 0.9em;
-        }
-
-        .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 600; }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 60px;
-        }
-
-        /* Entry Container */
-        .thought-entry {
-            margin-bottom: 100px; /* Large gap to separate different topics */
-        }
-
-        .entry-tag {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #b0b0b0;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .date {
-            font-size: 0.85em;
-            color: var(--secondary);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        /* Essay Style */
-        .essay-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .essay-content {
-            font-size: 1.05rem;
             color: var(--text);
-            text-align: justify;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
+        .post-item a:hover { color: var(--secondary); }
+        .post-date { font-size: 0.85em; color: #b0b0b0; font-family: monospace; }
+        .post-category { font-size: 0.7rem; color: #ccc; text-transform: uppercase; margin-left: 10px; }
 
-        /* Poem Style */
-        .poem-content {
-            font-style: italic;
-            color: var(--secondary); /* Grey color for poems */
-            font-size: 1.15rem;
-            line-height: 1.9;
-            white-space: pre-wrap;
-            border-left: 2px solid var(--border);
-            padding-left: 30px;
-            margin-top: 10px;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            font-size: 0.85em;
-            color: var(--secondary);
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            nav { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .nav-links a { margin-left: 0; margin-right: 15px; }
-        }
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="thoughts.html" class="active">Thoughts</a>
-        </div>
+        <div class="nav-links"><a href="index.html">Home</a><a href="thoughts.html" class="active">Thoughts</a></div>
     </nav>
 
-    <header>
-        <h1>Thoughts</h1>
-    </header>
+    <header><h1>Thoughts</h1></header>
 
-    <main>
-
-        <article class="thought-entry">
-            <span class="entry-tag">Analysis</span>
-            <span class="date">March 24, 2026</span>
-            <h2 class="essay-title">The Geopolitics of the Middle East: Beyond the Surface</h2>
-            <div class="essay-content">
-                When discussing the Iran-Israel conflict, we must look beyond the immediate military maneuvers. 
-                The socio-political implications of regional stability affect not just the neighbors, but the global 
-                energy landscape and historical narratives... [Insert your write-up here].
+    <ul class="post-list">
+        <li class="post-item">
+            <div>
+                <a href="iran-israel.html">The Iran-Israel Conflict</a>
+                <span class="post-category">Analysis</span>
             </div>
-        </article>
+            <span class="post-date">2026-03-24</span>
+        </li>
 
-        <article class="thought-entry">
-            <span class="entry-tag">Kavita</span>
-            <span class="date">March 22, 2026</span>
-            <div class="poem-content">
-हिमालय की गोद में
-एक शांत सा कोना है,
-ना कुछ पाने की जल्दी है
-ना कुछ खोना है।
+        <li class="post-item">
+            <div>
+                <a href="pahad-kavita.html">पहाड़ और किसान</a>
+                <span class="post-category">Kavita</span>
             </div>
-        </article>
+            <span class="post-date">2026-03-22</span>
+        </li>
+    </ul>
 
-    </main>
-
-    <footer>
-        © 2026 Akanksha • Built with simplicity ♡
-    </footer>
-
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 </body>
 </html>
