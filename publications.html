@@ -39,7 +39,6 @@
             text-decoration: none;
             color: var(--secondary);
             font-size: 0.9em;
-            transition: color 0.2s ease;
         }
 
         .nav-links a:hover { color: var(--text); }
@@ -49,7 +48,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 15px;
+            margin-bottom: 40px;
         }
 
         section { margin-bottom: 60px; }
@@ -59,9 +58,53 @@
             font-weight: 600;
             border-bottom: 1px solid var(--border);
             padding-bottom: 8px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-transform: lowercase;
+        }
+
+        /* Publication Item Styling */
+        .pub-item {
+            margin-bottom: 40px;
+            padding-left: 0;
+        }
+
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
             color: var(--text);
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .pub-meta {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .pub-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            padding: 2px 10px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .pub-link:hover {
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
         }
 
         footer {
@@ -72,9 +115,6 @@
             color: var(--secondary);
             text-align: center;
         }
-
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
 
         @media (max-width: 600px) {
             nav { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -89,7 +129,7 @@
         <div class="nav-links">
             <a href="index.html">home</a>
             <a href="publications.html" class="active">publications</a>
-            <a href="thoughts.html">thoughts</a>
+            <a href="research.html">research</a>
             <a href="creative.html">creative space</a>
         </div>
     </nav>
@@ -98,10 +138,25 @@
         <h1>Publications</h1>
     </header>
 
-   <section>
-        <h2>selected work</h2>
-        <p style="color: var(--secondary);">Coming soon... a collection of my formal writings and published pieces.</p>
-    </section>
+    <main>
+        <section>
+            <h2>conference papers & proceedings</h2>
+
+            <div class="pub-item">
+                <span class="pub-title">Simulating climate strategy: Behavioral shifts in farmer investment under uncertainty in the Western Himalayas</span>
+                <p class="pub-authors"><strong>Singh, A.</strong>, Uday, K. V., & Dutt, V. (2025, November 1–2).</p>
+                <p class="pub-meta">Presented at the Applied Behavioral Science and Decision Making Conference, Indian Institute of Technology Mandi, Himachal Pradesh, India.</p>
+            </div>
+
+            <div class="pub-item">
+                <span class="pub-title">Moral licensing in climate change mitigation: The role of feedback and probability dynamics</span>
+                <p class="pub-authors">Choudhary, G., <strong>Singh, A.</strong>, Aggarwal, P., & Dutt, V. (2025, June).</p>
+                <p class="pub-meta">In Proceedings of the 69th ASPIRE HFES Human Factors and Ergonomics Society Annual Meeting. ResearchGate.</p>
+                <a href="https://www.researchgate.net/publication/392620838_Moral_licensing_in_climate_change_mitigation_The_role_of_feedback_and_probability_dynamics" class="pub-link" target="_blank">View on ResearchGate</a>
+            </div>
+
+        </section>
+    </main>
 
     <footer>
         © 2026 Akanksha • Built with simplicity ♡
