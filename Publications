@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>akanksha writes | publications | home</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --accent: #0070f3;
+            --border: #eaeaea;
+        }
+
+        /* Basic Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 0.9em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); font-weight: 600; }
+
+        /* Content Sections */
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 15px;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            color: var(--secondary);
+            margin-bottom: 60px;
+        }
+
+        section { margin-bottom: 60px; }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            text-transform: lowercase;
+            color: var(--text);
+        }
+
+        .status-quote {
+            font-style: italic;
+            color: var(--secondary);
+            line-height: 1.8;
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.85em;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .nav-links a { margin-left: 0; margin-right: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">akanksha.</a>
+        <div class="nav-links">
+            <a href="index.html" class="active">publications</a>
+            <a href="publications.html">publications</a>
+            <a href="thoughts.html">thoughts</a>
+            <a href="creative.html">creative space</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Publications</h1>
+    </header>
+
+   <section>
+        <h2>selected work</h2>
+        <p style="color: var(--secondary);">Coming soon... a collection of my formal writings and published pieces.</p>
+    </section>
+
+    <footer>
+        © 2026 Akanksha • built with simplicity
+    </footer>
+
+</body>
+</html>
