@@ -27,9 +27,18 @@
         header h1 { 
             font-family: 'Playfair Display', serif; 
             font-size: 2.5rem; 
-            margin-bottom: 50px; 
+            margin-bottom: 30px; 
             letter-spacing: -1px;
         }
+
+        /* Filter Bar Styling */
+        .filter-bar { margin-bottom: 40px; display: flex; gap: 10px; }
+        .filter-btn { 
+            background: none; border: 1px solid var(--border); padding: 6px 16px; 
+            border-radius: 20px; cursor: pointer; font-size: 0.8rem; color: var(--secondary);
+            transition: 0.2s ease; font-family: 'Inter', sans-serif;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--text); color: #fff; border-color: var(--text); }
 
         /* The List Container */
         .post-list { list-style: none; border-top: 1px solid var(--border); }
@@ -37,11 +46,12 @@
         .post-item {
             border-bottom: 1px solid var(--border);
             transition: background 0.2s ease;
+            display: block; /* Required for filtering */
         }
+        
+        .post-item.hide { display: none; }
 
-        .post-item:hover {
-            background-color: var(--hover-bg);
-        }
+        .post-item:hover { background-color: var(--hover-bg); }
 
         .post-link {
             display: flex;
@@ -52,23 +62,9 @@
             color: inherit;
         }
 
-        .post-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .post-title {
-            font-size: 1.15rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .post-meta-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .post-info { display: flex; flex-direction: column; gap: 4px; }
+        .post-title { font-size: 1.15rem; font-weight: 500; color: var(--text); }
+        .post-meta-row { display: flex; align-items: center; gap: 12px; }
 
         .post-tag {
             font-size: 0.65rem;
@@ -106,101 +102,119 @@
 
     <header>
         <h1>Thoughts</h1>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+            <button class="filter-btn" onclick="filterSelection('kavita')">Kavita</button>
+            <button class="filter-btn" onclick="filterSelection('satire')">Satire</button>
+        </div>
     </header>
 
     <main>
-        <div class="post-list">
+        <div id="postContainer" class="post-list">
             
-            <div class="post-item">
+            <div class="post-item satire">
                 <a href="momo-policy.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">Why GOI should subsidise Momos?</span>
-                        <div class="post-meta-row">
-                            <span class="post-tag">Satire</span>
-                        </div>
+                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
                     </div>
                     <span class="post-date">Mar 2026</span>
                 </a>
             </div>
 
-            <div class="post-item">
+            <div class="post-item kavita">
+                <a href="betiyon-mein-maa.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">बेटियों में मां</span>
+                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+                    </div>
+                    <span class="post-date">Mar 10, 2026</span>
+                </a>
+            </div>
+
+            <div class="post-item satire">
+                <a href="chugli-guidelines.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">Guidelines for Healthy Chugli</span>
+                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                    </div>
+                    <span class="post-date">Mar 2026</span>
+                </a>
+            </div>
+
+            <div class="post-item satire">
+                <a href="cse-toxic-partner.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">CSE and a Toxic Partner</span>
+                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                    </div>
+                    <span class="post-date">Mar 2026</span>
+                </a>
+            </div>
+
+            <div class="post-item satire">
+                <a href="mr-girgit.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">Why Mr. Girgit is an Ideal Friend</span>
+                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                    </div>
+                    <span class="post-date">Mar 2026</span>
+                </a>
+            </div>
+
+            <div class="post-item kavita">
                 <a href="van-kavita.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">ये जंगल तुम्हे देख रहा है</span>
-                        <div class="post-meta-row">
-                            <span class="post-tag">Kavita</span>
-                        </div>
+                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
                     </div>
                     <span class="post-date">Mar 27, 2025</span>
                 </a>
             </div>
 
-            <div class="post-list">
-    
-    <div class="post-item">
-        <a href="betiyon-mein-maa.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">बेटियों में मां</span>
-                <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+            <div class="post-item kavita">
+                <a href="aankhein.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">आँखें</span>
+                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+                    </div>
+                    <span class="post-date">Feb 18, 2025</span>
+                </a>
             </div>
-            <span class="post-date">Mar 10, 2026</span>
-        </a>
-    </div>
 
-    <div class="post-item">
-        <a href="aankhein.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">आँखें</span>
-                <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+            <div class="post-item kavita">
+                <a href="sarhadein.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">सरहदें</span>
+                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+                    </div>
+                    <span class="post-date">Feb 21, 2023</span>
+                </a>
             </div>
-            <span class="post-date">Feb 18, 2025</span>
-        </a>
-    </div>
-
-    <div class="post-item">
-        <a href="sarhadein.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">सरहदें</span>
-                <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
-            </div>
-            <span class="post-date">Feb 21, 2023</span>
-        </a>
-    </div>
-
-                <div class="post-list">
-    <div class="post-item">
-        <a href="chugli-guidelines.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">Guidelines for Healthy Chugli</span>
-                <div class="post-meta-row"><span class="post-tag">Satire</span></div>
-            </div>
-            <span class="post-date">Mar 2026</span>
-        </a>
-    </div>
-
-    <div class="post-item">
-        <a href="cse-toxic-partner.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">CSE and a Toxic Partner: A Comparison</span>
-                <div class="post-meta-row"><span class="post-tag">Satire</span></div>
-            </div>
-            <span class="post-date">Mar 2026</span>
-        </a>
-    </div>
-
-    <div class="post-item">
-        <a href="mr-girgit.html" class="post-link">
-            <div class="post-info">
-                <span class="post-title">Why Mr. Girgit is an Ideal Friend</span>
-                <div class="post-meta-row"><span class="post-tag">Satire</span></div>
-            </div>
-            <span class="post-date">Mar 2026</span>
-        </a>
-    </div>
-</div>
 
         </div>
     </main>
+
+    <script>
+        function filterSelection(c) {
+            var x = document.getElementsByClassName("post-item");
+            if (c == "all") c = "";
+            for (var i = 0; i < x.length; i++) {
+                x[i].classList.remove("hide");
+                if (c !== "" && !x[i].classList.contains(c)) {
+                    x[i].classList.add("hide");
+                }
+            }
+            // Update button states
+            var btns = document.getElementsByClassName("filter-btn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active");
+                if (btns[i].getAttribute('onclick').includes(c || 'all')) {
+                    btns[i].classList.add("active");
+                }
+            }
+        }
+    </script>
 
     <footer>
         © 2026 Akanksha • Built with simplicity ♡
