@@ -5,92 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>akanksha writes</title>
     <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --accent: #0070f3; /* Subtle blue for links */
+            --border: #eaeaea;
+        }
+
+        /* Basic Reset */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 680px;
-            margin: 60px auto;
-            padding: 0 20px;
-            line-height: 1.75;
-            color: #2c2c2c;
-            background: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        h1 {
-            font-size: 2.2em;
-            font-weight: 400;
-            margin-bottom: 8px;
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
         }
-        .subtitle {
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 50px;
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 0.95em;
         }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #eee;
-            margin: 50px 0;
+
+        .nav-links a:hover { color: var(--text); }
+
+        /* Header / Intro */
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
         }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Sections */
+        section { margin-bottom: 50px; }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: lowercase; /* Matches the minimalist aesthetic */
+        }
+
+        /* List Items (Education/Experience style) */
+        .item-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .item-title { font-weight: 500; }
+        .item-meta { color: var(--secondary); font-size: 0.9em; text-align: right; }
+
+        /* Poem / Content Styling */
         .poem {
             font-style: italic;
-            font-size: 1.15em;
-            margin: 35px 0;
+            border-left: 3px solid var(--border);
+            padding-left: 20px;
+            margin: 20px 0;
             white-space: pre-wrap;
-            color: #333;
         }
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 30px 0;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
+
         footer {
             margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85em;
+            color: var(--secondary);
             text-align: center;
-            font-size: 0.95em;
-            color: #888;
         }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .item-row { flex-direction: column; }
+            .item-meta { text-align: left; margin-top: 2px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>akanksha writes</h1>
-    <p class="subtitle">a quiet corner for poems, memes, satires &amp; thoughts</p>
+    <nav>
+        <div style="font-weight: 700;">akanksha.</div>
+        <div class="nav-links">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#writing">writing</a>
+        </div>
+    </nav>
 
-    <hr>
+    <header id="home">
+        <h1>hi, i'm akanksha</h1>
+        <p class="intro-text">
+            I write poems, share thoughts, and document my journey. This is my quiet corner of the internet where I explore decision making, creativity, and simple living.
+        </p>
+    </header>
 
-    <h2>About this space</h2>
-    <p>This is my personal journal in public. No likes, no comments, no pressure. Just me sharing whatever I feel like writing or creating.</p>
+    <section id="about">
+        <h2>about</h2>
+        <div class="item-row">
+            <div class="item-title">Creative Writing & Poetry</div>
+            <div class="item-meta">2021 — Present</div>
+        </div>
+        <p style="color: var(--secondary); font-size: 0.95rem;">
+            Exploring the intersection of human emotions and digital spaces.
+        </p>
+    </section>
 
-    <hr>
-
-    <h2>Latest</h2>
-
-    <!-- === Replace everything below with your own content === -->
-
-    <h3>A small poem – March 2026</h3>
-    <div class="poem">
+    <section id="writing">
+        <h2>latest writing</h2>
+        
+        <article style="margin-bottom: 30px;">
+            <div class="item-row">
+                <div class="item-title">A small poem</div>
+                <div class="item-meta">March 2026</div>
+            </div>
+            <div class="poem">
 the hills are quiet today  
 they hold their breath  
 while I write lines  
 that may never be read
-    </div>
-
-    <p style="color:#777; font-size:0.95em;">— akanksha</p>
-
-    <!-- You can add more poems or memes here later -->
-
-    <hr>
+            </div>
+        </article>
+    </section>
 
     <footer>
-        made with calm • <a href="https://github.com/akanksha16s/akanksha16s.github.io" target="_blank">view source</a>
+        © 2026 Akanksha • built with simplicity
     </footer>
 
 </body>
