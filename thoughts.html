@@ -4,64 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>akanksha writes | thoughts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
+        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #888888; --border: #eeeeee; --hover-bg: #fcfcfc; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 750px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.6; 
+        }
+
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
-        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+        .logo { font-weight: 700; text-decoration: none; color: var(--text); letter-spacing: -0.5px; }
         .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
         .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 600; }
-        
-        header h1 { font-size: 2.5rem; margin-bottom: 40px; }
 
-        /* The List Style */
-        .post-list { list-style: none; padding: 0; }
+        header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.5rem; 
+            margin-bottom: 50px; 
+            letter-spacing: -1px;
+        }
+
+        /* The List Container */
+        .post-list { list-style: none; border-top: 1px solid var(--border); }
+
         .post-item {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s ease;
+        }
+
+        .post-item:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .post-link {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 15px 0;
-            border-bottom: 1px solid #f9f9f9;
-        }
-        .post-item a {
+            align-items: center;
+            padding: 25px 10px;
             text-decoration: none;
-            color: var(--text);
-            font-size: 1.1rem;
-            font-weight: 400;
+            color: inherit;
         }
-        .post-item a:hover { color: var(--secondary); }
-        .post-date { font-size: 0.85em; color: #b0b0b0; font-family: monospace; }
-        .post-category { font-size: 0.7rem; color: #ccc; text-transform: uppercase; margin-left: 10px; }
+
+        .post-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .post-title {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .post-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .post-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .post-date {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            font-variant-numeric: tabular-nums;
+        }
 
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+
+        @media (max-width: 600px) {
+            .post-link { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
-        <div class="nav-links"><a href="index.html">Home</a><a href="thoughts.html" class="active">Thoughts</a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="thoughts.html" class="active">Thoughts</a>
+            <a href="https://x.com/your-username" target="_blank">X</a>
+        </div>
     </nav>
 
-    <header><h1>Thoughts</h1></header>
+    <header>
+        <h1>Thoughts</h1>
+    </header>
 
-    <ul class="post-list">
-    <li class="post-item">
-        <div>
-            <a href="momo-policy.html">Why GOI should subsidise Momos?</a>
-            <span class="post-category">Satire</span>
+    <main>
+        <div class="post-list">
+            
+            <div class="post-item">
+                <a href="momo-policy.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">Why GOI should subsidise Momos?</span>
+                        <div class="post-meta-row">
+                            <span class="post-tag">Satire</span>
+                        </div>
+                    </div>
+                    <span class="post-date">Mar 2026</span>
+                </a>
+            </div>
+
+            <div class="post-item">
+                <a href="van-kavita.html" class="post-link">
+                    <div class="post-info">
+                        <span class="post-title">ये जंगल तुम्हे देख रहा है</span>
+                        <div class="post-meta-row">
+                            <span class="post-tag">Kavita</span>
+                        </div>
+                    </div>
+                    <span class="post-date">Mar 27, 2025</span>
+                </a>
+            </div>
+
         </div>
-        <span class="post-date">2026-03</span>
-    </li>
+    </main>
 
-    <li class="post-item">
-        <div>
-            <a href="van-kavita.html">ये जंगल तुम्हे देख रहा है</a>
-            <span class="post-category">Kavita</span>
-        </div>
-        <span class="post-date">2025-03-27</span>
-    </li>
-</ul>
+    <footer>
+        © 2026 Akanksha • Built with simplicity ♡
+    </footer>
 
-    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 </body>
 </html>
