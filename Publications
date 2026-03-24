@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>akanksha writes | publications | home</title>
+    <title>akanksha writes | publications</title>
     <style>
         :root {
             --bg: #ffffff;
@@ -13,7 +13,6 @@
             --border: #eaeaea;
         }
 
-        /* Basic Reset */
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
@@ -26,7 +25,6 @@
             padding: 40px 20px;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -47,18 +45,11 @@
         .nav-links a:hover { color: var(--text); }
         .nav-links a.active { color: var(--text); font-weight: 600; }
 
-        /* Content Sections */
         header h1 {
             font-size: 2.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 15px;
-        }
-
-        .intro-text {
-            font-size: 1.15rem;
-            color: var(--secondary);
-            margin-bottom: 60px;
         }
 
         section { margin-bottom: 60px; }
@@ -71,15 +62,6 @@
             margin-bottom: 25px;
             text-transform: lowercase;
             color: var(--text);
-        }
-
-        .status-quote {
-            font-style: italic;
-            color: var(--secondary);
-            line-height: 1.8;
-            border-left: 2px solid var(--border);
-            padding-left: 20px;
-            margin-bottom: 30px;
         }
 
         footer {
@@ -105,8 +87,8 @@
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
         <div class="nav-links">
-            <a href="index.html" class="active">publications</a>
-            <a href="publications.html">publications</a>
+            <a href="index.html">home</a>
+            <a href="publications.html" class="active">publications</a>
             <a href="thoughts.html">thoughts</a>
             <a href="creative.html">creative space</a>
         </div>
