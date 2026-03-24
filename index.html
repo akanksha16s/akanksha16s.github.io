@@ -5,35 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>akanksha writes | home</title>
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
-        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
         .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 0.9em;
+        }
+
         .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 600; }
-        header h1 { font-size: 2.5rem; margin-bottom: 15px; }
-        .intro-text { font-size: 1.15rem; color: var(--secondary); margin-bottom: 60px; }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 15px;
+        }
+
+        /* This makes your intro text grey */
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
         section { margin-bottom: 60px; }
-        h2 { font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 25px; }
-        .status-quote { font-style: italic; color: var(--secondary); border-left: 2px solid var(--border); padding-left: 20px; margin-bottom: 30px; }
-        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
-        @media (max-width: 600px) { nav { flex-direction: column; align-items: flex-start; gap: 20px; } .nav-links a { margin-left: 0; margin-right: 15px; } }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            color: var(--text);
+        }
+
+        .status-quote {
+            font-style: italic;
+            color: var(--secondary);
+            line-height: 1.8;
+            border-left: 2px solid var(--border);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.85em;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .nav-links a { margin-left: 0; margin-right: 15px; }
+        }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
         <div class="nav-links">
-            <a href="index.html" class="active">home</a>
-            <a href="thoughts.html">thoughts</a>
-            <a href="creative.html">creative space</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="thoughts.html">Thoughts</a>
         </div>
     </nav>
+
     <header>
         <h1>Hello!</h1>
-        <p class="intro-text">I'm Akanksha. Welcome to the world of an Ambivert.</p>
+        <div class="intro-text">
+            <p>I am a research scholar at the Indian Institute of Technology Mandi, Himachal Pradesh, working on climate change with the Western Himalayan farmers.</p>
+            <br>
+            <p>This is my personal journal in public. Just me sharing whatever I feel like writing or creating.</p>
+        </div>
     </header>
+
     <section>
         <h2>About This Space</h2>
         <div class="status-quote">
@@ -41,8 +118,11 @@
             <p>Thoughts and words — nothing more.</p>
             <p>An extension of my WhatsApp statuses.</p>
         </div>
-        <p>I am a research scholor at the Indian Institute of Technology Mandi, Himachal Pradesh, working on climate change with the Wesetern Himalyan farmers. This is my personal journal in public. Just me sharing whatever I feel like writing or creating.</p>
     </section>
-    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <footer>
+        © 2026 Akanksha • Built with simplicity ♡
+    </footer>
+
 </body>
 </html>
