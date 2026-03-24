@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>akanksha writes | creative</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --accent: #0070f3;
+            --border: #eaeaea;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 0.9em;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); font-weight: 600; }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 40px;
+        }
+
+        section { margin-bottom: 60px; }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+            text-transform: lowercase;
+        }
+
+        /* Poem Styling */
+        .poem-block {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            border-left: 2px solid var(--border);
+            padding-left: 25px;
+            margin: 40px 0;
+            white-space: pre-wrap;
+        }
+
+        /* Image/Meme Styling */
+        .creative-media {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .creative-media img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            /* Optional: subtle border for light images */
+            border: 1px solid var(--border); 
+        }
+
+        .media-caption {
+            font-size: 0.85em;
+            color: var(--secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            font-size: 0.85em;
+            color: var(--secondary);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .nav-links a { margin-left: 0; margin-right: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">akanksha.</a>
+        <div class="nav-links">
+            <a href="index.html">home</a>
+            <a href="publications.html">publications</a>
+            <a href="thoughts.html">thoughts</a>
+            <a href="creative.html" class="active">creative space</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Creative Space</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>poems & pieces</h2>
+            
+            <div class="poem-block">
+the hills are quiet today  
+they hold their breath  
+while I write lines  
+that may never be read
+            </div>
+
+            </section>
+
+        <section>
+            <h2>visuals & memes</h2>
+            
+            <div class="creative-media">
+                <img src="https://via.placeholder.com/600x400?text=Your+Art+or+Meme+Here" alt="Creative work">
+                <div class="media-caption">A caption for your visual thought.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Akanksha • built with simplicity
+    </footer>
+
+</body>
+</html>
