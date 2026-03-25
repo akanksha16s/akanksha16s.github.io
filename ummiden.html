@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanksha | उम्मीदें</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="light"] { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
+        [data-theme="dark"] { --bg: #0f0f0f; --text: #eeeeee; --secondary: #999999; --border: #222222; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; }
+        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; font-size: 0.9em; }
+        #theme-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.75rem; }
+
+        header { margin-bottom: 30px; }
+        .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
+        h1 { font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.8rem; font-weight: 600; }
+
+        .poetry-container {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.25rem;
+            white-space: pre-wrap;
+            margin-top: 30px;
+        }
+
+        .signature { margin-top: 40px; display: block; font-weight: 600; text-align: right; }
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
+    <main>
+        <header>
+            <span class="post-meta">July 29, 2023 • Kavita</span>
+            <h1>उम्मीदें</h1>
+        </header>
+
+        <div class="poetry-container">एक अँधेरा कमरा है
+मेरी नाकामियों को अब इंसानी शक्ल मिल गई है,
+ये रोज़ मुझ पर हंसती हैं, 
+मेरी हर गलती को मेज़ पर तमगे-सा सजाती हैं।
+
+मेरी गलतियों को आवाज़ मिल गई है, 
+ये रोज़ मुझ पर चीखती हैं। 
+मुझे कायर पुकारती हैं,
+मेरे सपनों को कमज़ोर बतलाती हैं।
+
+मेरे सपनों को आँखें मिल गई हैं। 
+वे मुझे गुस्से से घूरती हैं।
+मेरी उम्मीदों पर हज़ारों प्रश्न उठाती हैं!
+
+मेरी उम्मीदों को पैर मिले हुए हैं!
+वो अब भी सकुचाई सी मेरे ही पास खड़ी है।
+हाथ भी शायद उसके ही पास हैं, 
+काँपते हुए सही, 
+उसने अब भी मुझे थामा हुआ है।
+
+इन सबसे घिरी मैं, 
+खुद से खुद को निहारतीं हुँ,
+इस भयानक सन्नाटे से मुझे डर लगता है।
+सब कुछ हो कर भी सब खाली लगता है।
+एक अंधेरा कमरा है,
+दूर कहीं एक रौशनी को निहारती हूँ! 
+
+<span class="signature">- आकांक्षा</span>
+        </div>
+    </main>
+
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+</body>
+</html>
