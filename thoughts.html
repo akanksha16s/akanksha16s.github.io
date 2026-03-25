@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | Thoughts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <style>
         /* Theme Variables */
         [data-theme="light"] {
@@ -12,8 +12,8 @@
             --text: #1a1a1a;
             --secondary: #666666;
             --border: #eaeaea;
-            --accent: #1a1a1a;
-            --accent-text: #ffffff;
+            --btn-active: #1a1a1a;
+            --btn-active-text: #ffffff;
         }
 
         [data-theme="dark"] {
@@ -21,8 +21,8 @@
             --text: #eeeeee;
             --secondary: #999999;
             --border: #222222;
-            --accent: #ffffff;
-            --accent-text: #000000;
+            --btn-active: #eeeeee;
+            --btn-active-text: #0f0f0f;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
@@ -31,19 +31,17 @@
             font-family: 'Inter', sans-serif; 
             background: var(--bg); 
             color: var(--text); 
-            max-width: 750px; 
+            max-width: 800px; 
             margin: 0 auto; 
             padding: 40px 20px; 
-            line-height: 1.6; 
         }
 
-        /* Navigation */
+        /* Nav */
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .logo { font-weight: 600; text-decoration: none; color: var(--text); }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
-        .nav-links a.active { color: var(--text); font-weight: 600; }
-
+        
         #theme-toggle {
             background: none;
             border: 1px solid var(--border);
@@ -54,161 +52,151 @@
             font-size: 0.75rem;
         }
 
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; }
 
-        /* Filter Buttons */
-        .filter-bar { margin-bottom: 40px; display: flex; gap: 10px; }
-        .filter-btn { 
-            background: transparent; 
-            border: 1px solid var(--border); 
-            color: var(--secondary); 
-            padding: 8px 16px; 
-            border-radius: 20px; 
-            cursor: pointer; 
-            font-size: 0.9rem;
-        }
-        .filter-btn.active { 
-            background: var(--accent); 
-            color: var(--accent-text); 
-            border-color: var(--accent); 
-        }
-
-        /* Post Items */
-        .post-list { display: flex; flex-direction: column; }
-        .post-item { border-bottom: 1px solid var(--border); transition: 0.2s; }
-        .post-item.hide { display: none; }
-        
-        .post-link { 
-            text-decoration: none; 
-            color: inherit; 
+        /* Prominent Filter Buttons */
+        .filters { 
             display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 25px 0; 
+            gap: 25px; 
+            margin-bottom: 50px; 
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
         }
-        
-        .post-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; display: block; margin-bottom: 5px; }
-        .post-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--secondary); }
-        .post-date { font-size: 0.85rem; color: var(--secondary); }
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--secondary);
+            cursor: pointer;
+            font-family: 'Playfair Display', serif; /* Elegant & Bold font */
+            font-size: 1.4rem; 
+            font-weight: 600;
+            padding-bottom: 5px;
+            position: relative;
+            transition: 0.3s;
+        }
+        .filter-btn:hover { color: var(--text); }
+        .filter-btn.active {
+            color: var(--text);
+        }
+        /* Underline effect for active prominent heading */
+        .filter-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--text);
+        }
+
+        /* Post Cards */
+        .posts-grid { display: grid; gap: 20px; }
+        .post-card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .post-card.hidden { display: none; }
+        .post-card h3 { margin: 10px 0 5px; font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+        .post-card p { font-size: 0.95rem; color: var(--secondary); line-height: 1.5; }
 
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="thoughts.html" class="active">Thoughts</a>
-                <a href="https://x.com/akanksha16s" target="_blank">X</a>
-            </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="thoughts.html" style="color: var(--text); font-weight: 600;">Thoughts</a>
             <button id="theme-toggle">Dark Mode</button>
         </div>
     </nav>
 
-    <header>
-        <h1>Thoughts</h1>
-        <div class="filter-bar">
-            <button class="filter-btn active" onclick="filterSelection('all')">All</button>
-            <button class="filter-btn" onclick="filterSelection('kavita')">Kavita</button>
-            <button class="filter-btn" onclick="filterSelection('satire')">Satire</button>
+    <h1>Thoughts</h1>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="kavita">Kavita</button>
+        <button class="filter-btn" data-filter="satire">Satire</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
+    <div class="posts-grid">
+        <a href="aankhein.html" class="post-card" data-category="kavita">
+            <h3>आँखें</h3>
+            <p>सबसे भयावह वो आँखें थीं, जो एंबुलेंस की खिड़की से रोड के जाम को निहार रहीं थीं!</p>
+        </a>
+        <a href="betiyon-mein-maa.html" class="post-card" data-category="kavita">
+            <h3>बेटियों में मां</h3>
+            <p>कैसे एक उम्र के बाद, बेटियों में दिखने लगती है, उनकी मां।</p>
+        </a>
+        <a href="sarhadein.html" class="post-card" data-category="kavita">
+            <h3>सरहदें</h3>
+            <p>तुमने सोचा कि, क्यों ना दुनिया को चलो सरहदों में बांट दें।</p>
+        </a>
+
+        <a href="chugli-guidelines.html" class="post-card" data-category="satire">
+            <h3>Chugli: Official Guidelines</h3>
+            <p>Standard operating procedures for the All-India Chugli Association.</p>
+        </a>
+        <a href="cse-toxic-partner.html" class="post-card" data-category="satire">
+            <h3>CSE and a Toxic Partner</h3>
+            <p>A comparison of two emotionally draining life choices.</p>
+        </a>
+
+        <div class="post-card hidden" data-category="other">
+            <h3>Coming Soon</h3>
+            <p>New categories and experiments will appear here.</p>
         </div>
-    </header>
-
-    <main>
-        <div id="postContainer" class="post-list">
-            <div class="post-item satire">
-                <a href="momo-policy.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">Why GOI should subsidise Momos?</span>
-                        <span class="post-tag">Satire</span>
-                    </div>
-                    <span class="post-date">Mar 2026</span>
-                </a>
-            </div>
-
-            <div class="post-item kavita">
-                <a href="betiyon-mein-maa.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">बेटियों में मां</span>
-                        <span class="post-tag">Kavita</span>
-                    </div>
-                    <span class="post-date">Mar 10, 2026</span>
-                </a>
-            </div>
-
-            <div class="post-item satire">
-                <a href="chugli-guidelines.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">Guidelines for Healthy Chugli</span>
-                        <span class="post-tag">Satire</span>
-                    </div>
-                    <span class="post-date">Mar 2026</span>
-                </a>
-            </div>
-
-            <div class="post-item satire">
-                <a href="cse-toxic-partner.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">CSE and a Toxic Partner</span>
-                        <span class="post-tag">Satire</span>
-                    </div>
-                    <span class="post-date">Mar 2026</span>
-                </a>
-            </div>
-
-            <div class="post-item satire">
-                <a href="mr-girgit.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">Why Mr. Girgit is an Ideal Friend</span>
-                        <span class="post-tag">Satire</span>
-                    </div>
-                    <span class="post-date">Mar 2026</span>
-                </a>
-            </div>
-
-            <div class="post-item kavita">
-                <a href="van-kavita.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">ये जंगल तुम्हे देख रहा है</span>
-                        <span class="post-tag">Kavita</span>
-                    </div>
-                    <span class="post-date">Mar 27, 2025</span>
-                </a>
-            </div>
-        </div>
-    </main>
+    </div>
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 
-   <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
+    <script>
+        // --- Theme Logic ---
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
 
-    // 1. Check the browser's memory when the page first loads
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    
-    // Apply the saved theme immediately
-    htmlElement.setAttribute('data-theme', savedTheme);
-    if (toggleBtn) {
-        toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
-    }
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+                localStorage.setItem('theme', newTheme);
+            });
+        }
 
-    // 2. When the button is clicked, change the theme AND save it to memory
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
-            
-            // This line is the "Memory" — it saves the choice for the next page
-            localStorage.setItem('theme', newTheme);
+        // --- Improved Filter Logic (Defaults to Kavita) ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const posts = document.querySelectorAll('.post-card');
+
+        function applyFilter(category) {
+            posts.forEach(post => {
+                if (post.getAttribute('data-category') === category) {
+                    post.classList.remove('hidden');
+                } else {
+                    post.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize: Show Kavita by default
+        applyFilter('kavita');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                btn.classList.add('active');
+                applyFilter(btn.getAttribute('data-filter'));
+            });
         });
-    }
-</script>
+    </script>
 </body>
 </html>
