@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | why momos?</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+            --header-color: #1a1a1a;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+            --header-color: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
         
         body { 
             font-family: 'Inter', -apple-system, sans-serif; 
@@ -20,20 +36,37 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        nav { margin-bottom: 60px; font-size: 0.9em; }
+        /* Nav & Toggle */
+        nav { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px; 
+            font-size: 0.9em; 
+        }
         .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; }
         .back-link:hover { color: var(--text); }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
 
         header { margin-bottom: 50px; }
         .post-meta { font-size: 0.75rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: block; }
         
-        /* Balanced, elegant heading */
         h1 { 
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem; 
             font-weight: 600; 
             line-height: 1.3;
-            color: var(--text);
+            color: var(--header-color);
         }
 
         .proposal-container {
@@ -53,7 +86,6 @@
             padding-bottom: 5px;
         }
 
-        /* Clean modern list styling */
         .policy-list {
             list-style: none;
             padding-left: 0;
@@ -71,7 +103,8 @@
             min-width: 20px;
         }
 
-        .policy-list li strong { color: #000; font-weight: 600; }
+        /* Adjusting strong tags to work with dark mode text */
+        .policy-list li strong { color: var(--header-color); font-weight: 600; }
 
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
@@ -80,6 +113,7 @@
 
     <nav>
         <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
     </nav>
 
     <main>
@@ -111,5 +145,29 @@
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Apply saved theme on load
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) {
+            toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        }
+
+        // Toggle and Save
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+                
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
 </body>
 </html>
