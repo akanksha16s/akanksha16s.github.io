@@ -1,87 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | Thoughts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <style>
-    :root { 
-        --bg: #0f0f0f; 
-        --text: #eeeeee; 
-        --secondary: #888888; 
-        --border: #222222; 
-        --accent: #ffffff;
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
-    
-    /* Nav stays the same as Home */
-    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-    .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-    .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
-    
-    /* Filter Buttons */
-    .filter-btn { 
-        background: transparent; 
-        border: 1px solid var(--border); 
-        color: var(--secondary); 
-        padding: 8px 16px; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: 0.3s;
-    }
-    .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
-    
-    /* Post Links */
-    .post-item { border-bottom: 1px solid var(--border); padding: 20px 0; text-decoration: none; display: block; }
-    .post-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); }
-    .post-meta { color: var(--secondary); font-size: 0.8rem; }
-    
-    footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
-<style>
-    :root { 
-        --bg: #0f0f0f; 
-        --text: #eeeeee; 
-        --secondary: #888888; 
-        --border: #222222; 
-        --accent: #ffffff;
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
-    
-    /* Nav stays the same as Home */
-    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-    .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-    .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
-    
-    /* Filter Buttons */
-    .filter-btn { 
-        background: transparent; 
-        border: 1px solid var(--border); 
-        color: var(--secondary); 
-        padding: 8px 16px; 
-        border-radius: 20px; 
-        cursor: pointer; 
-        transition: 0.3s;
-    }
-    .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
-    
-    /* Post Links */
-    .post-item { border-bottom: 1px solid var(--border); padding: 20px 0; text-decoration: none; display: block; }
-    .post-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); }
-    .post-meta { color: var(--secondary); font-size: 0.8rem; }
-    
-    footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
-</style>
-    
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+            --accent: #1a1a1a;
+            --accent-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+            --accent: #ffffff;
+            --accent-text: #000000;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 750px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.6; 
+        }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
+        .logo { font-weight: 700; text-decoration: none; color: var(--text); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        .nav-links a.active { color: var(--text); font-weight: 600; }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 30px; }
+
+        /* Filter Buttons */
+        .filter-bar { margin-bottom: 40px; display: flex; gap: 10px; }
+        .filter-btn { 
+            background: transparent; 
+            border: 1px solid var(--border); 
+            color: var(--secondary); 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            cursor: pointer; 
+            font-size: 0.9rem;
+        }
+        .filter-btn.active { 
+            background: var(--accent); 
+            color: var(--accent-text); 
+            border-color: var(--accent); 
+        }
+
+        /* Post Items */
+        .post-list { display: flex; flex-direction: column; }
+        .post-item { border-bottom: 1px solid var(--border); transition: 0.2s; }
+        .post-item.hide { display: none; }
+        
+        .post-link { 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 25px 0; 
+        }
+        
+        .post-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; display: block; margin-bottom: 5px; }
+        .post-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--secondary); }
+        .post-date { font-size: 0.85rem; color: var(--secondary); }
+
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+    </style>
 </head>
 <body>
 
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="thoughts.html" class="active">Thoughts</a>
-            <a href="https://x.com/your-username" target="_blank">X</a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="thoughts.html" class="active">Thoughts</a>
+                <a href="https://x.com/akanksha16s" target="_blank">X</a>
+            </div>
+            <button id="theme-toggle">Dark Mode</button>
         </div>
     </nav>
 
@@ -96,12 +119,11 @@
 
     <main>
         <div id="postContainer" class="post-list">
-            
             <div class="post-item satire">
                 <a href="momo-policy.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">Why GOI should subsidise Momos?</span>
-                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                        <span class="post-tag">Satire</span>
                     </div>
                     <span class="post-date">Mar 2026</span>
                 </a>
@@ -111,7 +133,7 @@
                 <a href="betiyon-mein-maa.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">बेटियों में मां</span>
-                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+                        <span class="post-tag">Kavita</span>
                     </div>
                     <span class="post-date">Mar 10, 2026</span>
                 </a>
@@ -121,7 +143,7 @@
                 <a href="chugli-guidelines.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">Guidelines for Healthy Chugli</span>
-                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                        <span class="post-tag">Satire</span>
                     </div>
                     <span class="post-date">Mar 2026</span>
                 </a>
@@ -131,7 +153,7 @@
                 <a href="cse-toxic-partner.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">CSE and a Toxic Partner</span>
-                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                        <span class="post-tag">Satire</span>
                     </div>
                     <span class="post-date">Mar 2026</span>
                 </a>
@@ -141,7 +163,7 @@
                 <a href="mr-girgit.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">Why Mr. Girgit is an Ideal Friend</span>
-                        <div class="post-meta-row"><span class="post-tag">Satire</span></div>
+                        <span class="post-tag">Satire</span>
                     </div>
                     <span class="post-date">Mar 2026</span>
                 </a>
@@ -151,36 +173,29 @@
                 <a href="van-kavita.html" class="post-link">
                     <div class="post-info">
                         <span class="post-title">ये जंगल तुम्हे देख रहा है</span>
-                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
+                        <span class="post-tag">Kavita</span>
                     </div>
                     <span class="post-date">Mar 27, 2025</span>
                 </a>
             </div>
-
-            <div class="post-item kavita">
-                <a href="aankhein.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">आँखें</span>
-                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
-                    </div>
-                    <span class="post-date">Feb 18, 2025</span>
-                </a>
-            </div>
-
-            <div class="post-item kavita">
-                <a href="sarhadein.html" class="post-link">
-                    <div class="post-info">
-                        <span class="post-title">सरहदें</span>
-                        <div class="post-meta-row"><span class="post-tag">Kavita</span></div>
-                    </div>
-                    <span class="post-date">Feb 21, 2023</span>
-                </a>
-            </div>
-
         </div>
     </main>
 
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
     <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        });
+
+        // Filtering Logic
         function filterSelection(c) {
             var x = document.getElementsByClassName("post-item");
             if (c == "all") c = "";
@@ -190,20 +205,16 @@
                     x[i].classList.add("hide");
                 }
             }
-            // Update button states
+            // Update button UI
             var btns = document.getElementsByClassName("filter-btn");
             for (var i = 0; i < btns.length; i++) {
                 btns[i].classList.remove("active");
-                if (btns[i].getAttribute('onclick').includes(c || 'all')) {
+                // Check if button text matches category
+                if (btns[i].textContent.toLowerCase() === (c || 'all')) {
                     btns[i].classList.add("active");
                 }
             }
         }
     </script>
-
-    <footer>
-        © 2026 Akanksha • Built with simplicity ♡
-    </footer>
-
 </body>
 </html>
