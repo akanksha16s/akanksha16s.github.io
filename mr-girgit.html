@@ -1,33 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | Mr. Girgit</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 650px; margin: 0 auto; padding: 40px 20px; line-height: 1.7; }
-        nav { margin-bottom: 50px; font-size: 0.9em; }
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+            --header-color: #1a1a1a;
+            --box-bg: #f9f9f9;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+            --header-color: #ffffff;
+            --box-bg: #161616;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.7; 
+        }
+
+        /* Navigation & Toggle */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 50px; 
+            font-size: 0.9em;
+        }
         .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; }
+        
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+
         header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
         .post-meta { font-size: 0.75rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 10px; }
+        
+        h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 10px; color: var(--header-color); }
+        
         .reasons-list { list-style: none; padding-left: 0; margin-top: 30px; }
         .reasons-list li { margin-bottom: 15px; display: flex; gap: 12px; }
         .reasons-list .bullet { color: var(--secondary); font-weight: bold; }
-        .lessons-box { background: #f9f9f9; padding: 25px; border-radius: 8px; margin-top: 40px; }
+        
+        .lessons-box { 
+            background: var(--box-bg); 
+            padding: 25px; 
+            border-radius: 8px; 
+            margin-top: 40px; 
+            border: 1px solid var(--border);
+        }
         .lessons-box h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 15px; color: var(--secondary); }
+        
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
 </head>
 <body>
-    <nav><a href="thoughts.html" class="back-link">← Back to Thoughts</a></nav>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
     <main>
         <header>
             <span class="post-meta">Satire • Friendship</span>
             <h1>Why Mr. Girgit is an Ideal Friend</h1>
         </header>
+
         <div class="content">
             <p>Recently, there have been some questions and eye-rollings about my relationship with Mr. Girgit. I want to confirm that this relationship is extremely platonic and indeed is an ideal friendship.</p>
             
@@ -46,6 +109,32 @@
             </div>
         </div>
     </main>
+
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Apply saved theme on load
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) {
+            toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        }
+
+        // Toggle and Save
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+                
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
 </body>
 </html>
