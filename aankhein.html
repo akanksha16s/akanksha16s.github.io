@@ -1,38 +1,87 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | आँखें</title>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
-        nav { margin-bottom: 50px; font-size: 0.9em; }
-        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; }
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.8; 
+        }
+
+        /* Navigation & Toggle */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 50px; 
+        }
+        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; font-size: 0.9em; }
+        
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
         header { margin-bottom: 30px; }
         .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
-        h1 { font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.5rem; font-weight: 600; color: var(--text); }
+        h1 { font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.8rem; font-weight: 600; color: var(--text); }
+
         .poetry-container {
             font-family: 'Tiro Devanagari Hindi', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text);
-            line-height: 1.9;
+            line-height: 2;
             white-space: pre-wrap;
             margin-top: 30px;
         }
+
         .signature { margin-top: 40px; display: block; color: var(--text); font-weight: 600; }
+        
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
 </head>
 <body>
-    <nav><a href="thoughts.html" class="back-link">← Back to Thoughts</a></nav>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
     <main>
         <header>
             <span class="post-meta">February 18, 2025 • Kavita</span>
             <h1>आँखें</h1>
         </header>
+
         <div class="poetry-container">सबसे भयावह वो आँखें थीं, 
 जो एंबुलेंस की खिड़की से 
 रोड के जाम को निहार रहीं थीं! 
@@ -67,6 +116,19 @@
 <span class="signature">- आकांक्षा</span>
         </div>
     </main>
+
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
 </body>
 </html>
