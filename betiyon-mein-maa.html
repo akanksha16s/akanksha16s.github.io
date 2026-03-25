@@ -51,6 +51,7 @@
             cursor: pointer;
             font-size: 0.75rem;
             font-family: 'Inter', sans-serif;
+            outline: none;
         }
 
         header { margin-bottom: 30px; }
@@ -122,15 +123,29 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
 
-        // Apply saved theme on load
+        // 1. Check for saved theme and apply it immediately
         const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
-        if (toggleBtn) {
-            toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
-        }
+        updateButtonText(savedTheme);
 
-        // Toggle and Save
+        // 2. Click event to toggle and save
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
                 const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' :
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateButtonText(newTheme);
+            });
+        }
+
+        // Helper function to keep text correct
+        function updateButtonText(theme) {
+            if (toggleBtn) {
+                toggleBtn.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+            }
+        }
+    </script>
+</body>
+</html>
