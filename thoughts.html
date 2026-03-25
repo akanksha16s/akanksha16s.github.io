@@ -12,8 +12,7 @@
             --text: #1a1a1a;
             --secondary: #666666;
             --border: #eaeaea;
-            --btn-active: #1a1a1a;
-            --btn-active-text: #ffffff;
+            --card-hover: #f9f9f9;
         }
 
         [data-theme="dark"] {
@@ -21,8 +20,7 @@
             --text: #eeeeee;
             --secondary: #999999;
             --border: #222222;
-            --btn-active: #eeeeee;
-            --btn-active-text: #0f0f0f;
+            --card-hover: #161616;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
@@ -34,11 +32,12 @@
             max-width: 800px; 
             margin: 0 auto; 
             padding: 40px 20px; 
+            line-height: 1.6;
         }
 
         /* Nav */
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
-        .logo { font-weight: 600; text-decoration: none; color: var(--text); }
+        .logo { font-weight: 600; text-decoration: none; color: var(--text); font-size: 1.2rem; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
         
@@ -46,10 +45,11 @@
             background: none;
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.75rem;
+            outline: none;
         }
 
         h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; }
@@ -57,32 +57,31 @@
         /* Prominent Filter Buttons */
         .filters { 
             display: flex; 
-            gap: 25px; 
+            gap: 30px; 
             margin-bottom: 50px; 
             border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
         }
         .filter-btn {
             background: none;
             border: none;
+            outline: none; /* Removes the black box */
             color: var(--secondary);
             cursor: pointer;
-            font-family: 'Playfair Display', serif; /* Elegant & Bold font */
-            font-size: 1.4rem; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5rem; 
             font-weight: 600;
-            padding-bottom: 5px;
+            padding-bottom: 12px;
             position: relative;
             transition: 0.3s;
         }
         .filter-btn:hover { color: var(--text); }
-        .filter-btn.active {
-            color: var(--text);
-        }
-        /* Underline effect for active prominent heading */
+        .filter-btn.active { color: var(--text); }
+        
+        /* Underline for active heading */
         .filter-btn.active::after {
             content: '';
             position: absolute;
-            bottom: -11px;
+            bottom: -1px;
             left: 0;
             width: 100%;
             height: 2px;
@@ -98,10 +97,23 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .post-card:hover { 
+            background: var(--card-hover); 
+            transform: translateY(-2px);
         }
         .post-card.hidden { display: none; }
-        .post-card h3 { margin: 10px 0 5px; font-family: 'Playfair Display', serif; font-size: 1.4rem; }
-        .post-card p { font-size: 0.95rem; color: var(--secondary); line-height: 1.5; }
+        
+        .post-card h3 { 
+            margin-bottom: 8px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.4rem; 
+        }
+        .post-card p { 
+            font-size: 0.95rem; 
+            color: var(--secondary); 
+        }
 
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
@@ -129,36 +141,55 @@
             <h3>आँखें</h3>
             <p>सबसे भयावह वो आँखें थीं, जो एंबुलेंस की खिड़की से रोड के जाम को निहार रहीं थीं!</p>
         </a>
+
         <a href="betiyon-mein-maa.html" class="post-card" data-category="kavita">
             <h3>बेटियों में मां</h3>
             <p>कैसे एक उम्र के बाद, बेटियों में दिखने लगती है, उनकी मां।</p>
         </a>
+
         <a href="sarhadein.html" class="post-card" data-category="kavita">
             <h3>सरहदें</h3>
             <p>तुमने सोचा कि, क्यों ना दुनिया को चलो सरहदों में बांट दें।</p>
         </a>
 
+        <a href="van-kavita.html" class="post-card" data-category="kavita">
+            <h3>ये जंगल तुम्हे देख रहा है</h3>
+            <p>कैसे तुम आए बड़ी कुल्हाड़ियों के साथ, तुमने मार गिराया निहत्थे साथियों को।</p>
+        </a>
+
         <a href="chugli-guidelines.html" class="post-card" data-category="satire">
             <h3>Chugli: Official Guidelines</h3>
-            <p>Standard operating procedures for the All-India Chugli Association.</p>
+            <p>The All-India Chugli Association (AICA) defines healthy chugli standards.</p>
         </a>
+
         <a href="cse-toxic-partner.html" class="post-card" data-category="satire">
             <h3>CSE and a Toxic Partner</h3>
-            <p>A comparison of two emotionally draining life choices.</p>
+            <p>A 14-point comparison by an extremely doubtful aspirant.</p>
+        </a>
+
+        <a href="momo-policy.html" class="post-card" data-category="satire">
+            <h3>Why GoI should subsidise Momos?</h3>
+            <p>A proposal for food policy reform and "Momos par Manthan".</p>
+        </a>
+
+        <a href="mr-girgit.html" class="post-card" data-category="satire">
+            <h3>Why Mr. Girgit is an Ideal Friend</h3>
+            <p>A tribute to the best listener with zero emotional tantrums.</p>
         </a>
 
         <div class="post-card hidden" data-category="other">
-            <h3>Coming Soon</h3>
-            <p>New categories and experiments will appear here.</p>
+            <h3>New Space</h3>
+            <p>Something interesting will be added here soon.</p>
         </div>
     </div>
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 
     <script>
-        // --- Theme Logic ---
+        // --- Theme Toggle Script ---
         const toggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
+
         const savedTheme = localStorage.getItem('theme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
         if (toggleBtn) toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
@@ -173,7 +204,7 @@
             });
         }
 
-        // --- Improved Filter Logic (Defaults to Kavita) ---
+        // --- Filter Script ---
         const filterBtns = document.querySelectorAll('.filter-btn');
         const posts = document.querySelectorAll('.post-card');
 
@@ -187,14 +218,18 @@
             });
         }
 
-        // Initialize: Show Kavita by default
+        // Show Kavita by default when page loads
         applyFilter('kavita');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                // Change which button looks active
                 document.querySelector('.filter-btn.active').classList.remove('active');
                 btn.classList.add('active');
-                applyFilter(btn.getAttribute('data-filter'));
+
+                // Filter the posts
+                const filterValue = btn.getAttribute('data-filter');
+                applyFilter(filterValue);
             });
         });
     </script>
