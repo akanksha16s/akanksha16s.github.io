@@ -56,13 +56,36 @@
             cursor: pointer;
             font-size: 0.75rem;
             font-family: 'Inter', sans-serif;
+            outline: none;
         }
 
         header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
         .post-meta { font-size: 0.75rem; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.1em; }
-        
         h1 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-top: 10px; color: var(--header-color); }
+
+        /* New: Portrait Image Handling */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .portrait-img {
+            width: 80%;
+            max-width: 400px; /* Limits the size of the portrait image on wide screens */
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+        }
         
+        [data-theme="dark"] .portrait-img {
+            box-shadow: 0 4px 12px rgba(255,255,255,0.02);
+        }
+
         .reasons-list { list-style: none; padding-left: 0; margin-top: 30px; }
         .reasons-list li { margin-bottom: 15px; display: flex; gap: 12px; }
         .reasons-list .bullet { color: var(--secondary); font-weight: bold; }
@@ -90,6 +113,10 @@
             <span class="post-meta">Satire • Friendship</span>
             <h1>Why Mr. Girgit is an Ideal Friend</h1>
         </header>
+
+        <div class="image-container">
+            <img src="girgit.png" alt="Mr. Girgit in his camouflaged environment" class="portrait-img">
+        </div>
 
         <div class="content">
             <p>Recently, there have been some questions and eye-rollings about my relationship with Mr. Girgit. I want to confirm that this relationship is extremely platonic and indeed is an ideal friendship.</p>
@@ -130,9 +157,8 @@
                 const newTheme = currentTheme === 'light' ? 'dark' : 'light';
                 
                 htmlElement.setAttribute('data-theme', newTheme);
-                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
-                
                 localStorage.setItem('theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
             });
         }
     </script>
