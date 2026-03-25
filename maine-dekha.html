@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanksha | मैंने देखा</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="light"] { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
+        [data-theme="dark"] { --bg: #0f0f0f; --text: #eeeeee; --secondary: #999999; --border: #222222; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 700px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; }
+        .back-link { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        
+        #theme-toggle {
+            background: none; border: 1px solid var(--border); color: var(--text);
+            padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.75rem;
+        }
+
+        header { margin-bottom: 30px; }
+        .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
+        h1 { font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.8rem; font-weight: 600; }
+
+        .poetry-container {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.25rem;
+            line-height: 2;
+            white-space: pre-wrap;
+            margin-top: 30px;
+            text-align: justify;
+        }
+
+        .signature { margin-top: 40px; display: block; font-weight: 600; }
+        .date-stamp { font-size: 0.8rem; color: var(--secondary); margin-top: 10px; display: block; }
+        
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
+    <main>
+        <header>
+            <span class="post-meta">Kavita</span>
+            <h1>मैंने देखा</h1>
+        </header>
+
+        <div class="poetry-container">मैंने देखा,
+स्वन्त्रता का एक सुंदर त्यौहार,
+मैंने देखा,
+लोक एकता और उनका प्यार,
+मैंने देखा, 
+कैसे रंगो का भेद समाता है एक तिरंगें में,
+मैंने देखा, 
+कैसे धर्म का भेद समता है एक हिन्द में, 
+मैंने देखा,
+देश की विविध-एकता की पोशाक़ 
+मैंने देखा , 
+नफ़रत के फैले जाल में एक सुराख़।
+
+<span class="signature">~ आकांक्षा</span>
+<span class="date-stamp">(Aug 19, 23; 00:23)</span>
+        </div>
+    </main>
+
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+            });
+        }
+    </script>
+</body>
+</html>
