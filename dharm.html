@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanksha | धर्म</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="light"] { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
+        [data-theme="dark"] { --bg: #0f0f0f; --text: #eeeeee; --secondary: #999999; --border: #222222; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 700px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; }
+        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; font-size: 0.9em; }
+        #theme-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.75rem; }
+
+        header { margin-bottom: 30px; }
+        .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
+        h1 { font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.8rem; font-weight: 600; }
+
+        .poetry-container {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.25rem;
+            white-space: pre-wrap;
+            margin-top: 30px;
+        }
+
+        .signature { margin-top: 40px; display: block; font-weight: 600; }
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
+    <main>
+        <header>
+            <span class="post-meta">January 24, 2023 • Kavita</span>
+            <h1>धर्म</h1>
+        </header>
+
+        <div class="poetry-container">ये जो धर्म की बातें तुमने मुझे बतायीं हैं,
+सच सच कहो,
+अपनी बुद्धि का कितना अंश बेच कर पायीं हैं?
+
+किसने मुझे रचा,
+कौन मेरे लिए मरा,
+क्यों किसी ने किसी को हराया
+कहाँ स्वर्ग, कहाँ नर्क
+इन बातों को तुमने क्या सोच कर अपनाया है?
+
+कहते हो,
+ये ईश्वरत्व की बातें हैं, इन पर बहस नहीं,
+सच ये है कि तुम तर्कों के साथ सहज नहीं।
+
+मुझे दिक्कत उन बातों से है,
+जो मुझे समझ नहीं आयीं हैं।
+गलत हो तुम!
+जो बातें समझ आयीं हैं,
+दरअसल तबाही तो उन्हीं ने मचायी है!
+
+ठीक है,
+तुम्हारा विश्वास है,
+तुम जो चाहे वो मानो!
+बस मुझे इस बंधन में मत बांधो।
+
+तुम जिसे धर्म कहते हो,
+मुझे बंधन लगते हैं,
+तुम जिसे संगत कहते हो,
+मुझे मनोरंजन के रंगत लगते हैं।
+
+अपने मन की कहूँ?
+ईश्वर की खोज तो मुझे भी है,
+पर वो जो,
+लोगों को ना बांटे,
+और वो जो,
+मेरे सवालों से ना भागे!
+
+<span class="signature">- आकांक्षा</span>
+        </div>
+    </main>
+
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                htmlElement.setAttribute('data-theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+</body>
+</html>
