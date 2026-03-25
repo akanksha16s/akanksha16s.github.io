@@ -53,6 +53,7 @@
             cursor: pointer;
             font-size: 0.75rem;
             font-family: 'Inter', sans-serif;
+            outline: none;
         }
 
         header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
@@ -116,3 +117,39 @@
 
             <div class="signature-block">
                 <strong>Akanksha Singh</strong>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // 1. Check for saved theme and apply it immediately
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateButtonText(savedTheme);
+
+        // 2. Click event to toggle and save
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateButtonText(newTheme);
+            });
+        }
+
+        // Helper function to keep text correct
+        function updateButtonText(theme) {
+            if (toggleBtn) {
+                toggleBtn.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+            }
+        }
+    </script>
+</body>
+</html>
