@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="hi" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | ये जंगल तुम्हे देख रहा है</title>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
         
         body { 
             font-family: 'Inter', sans-serif; 
@@ -16,17 +30,35 @@
             max-width: 700px; 
             margin: 0 auto; 
             padding: 40px 20px; 
+            line-height: 1.8;
         }
         
-        nav { margin-bottom: 50px; font-size: 0.9em; }
-        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; }
+        /* Navigation & Toggle */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 50px; 
+        }
+        .back-link { text-decoration: none; color: var(--secondary); display: flex; align-items: center; gap: 5px; font-size: 0.9em; }
         
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            outline: none;
+        }
+
         header { margin-bottom: 30px; }
         .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
         
         h1 { 
             font-family: 'Tiro Devanagari Hindi', serif;
-            font-size: 1.5rem; 
+            font-size: 1.8rem; 
             font-weight: 600; 
             color: var(--text);
         }
@@ -35,7 +67,7 @@
             font-family: 'Tiro Devanagari Hindi', serif;
             font-size: 1.25rem;
             color: var(--text);
-            line-height: 1.8;
+            line-height: 2;
             white-space: pre-wrap; 
             margin-top: 30px;
             padding-left: 5px;
@@ -55,6 +87,7 @@
 
     <nav>
         <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
     </nav>
 
     <main>
@@ -101,5 +134,28 @@
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
 
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Apply saved theme on load
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        if (toggleBtn) {
+            toggleBtn.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        }
+
+        // Toggle and Save
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+            });
+        }
+    </script>
 </body>
 </html>
