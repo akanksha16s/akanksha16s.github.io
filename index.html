@@ -1,61 +1,98 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akanksha | home</title>
+    <title>Akanksha | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --secondary: #666666; --border: #eaeaea; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 750px; margin: 0 auto; padding: 40px 20px; line-height: 1.6; }
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+            --btn-bg: #1a1a1a;
+            --btn-text: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+            --btn-bg: #eeeeee;
+            --btn-text: #0f0f0f;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 750px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.6; 
+        }
 
         /* Navigation */
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
         .logo { font-weight: 700; text-decoration: none; color: var(--text); }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
         .nav-links a:hover, .nav-links a.active { color: var(--text); font-weight: 600; }
 
-        /* Search Bar */
-        .search-container { margin-bottom: 60px; }
-        .search-bar {
-            width: 100%;
-            padding: 12px 15px;
+        /* Theme Toggle Button */
+        #theme-toggle {
+            background: none;
             border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
             color: var(--text);
-            outline: none;
-            transition: border-color 0.2s;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
         }
-        .search-bar:focus { border-color: #aaa; }
 
         /* Profile Header */
         .profile-header { display: flex; align-items: center; gap: 20px; margin-bottom: 40px; }
         .profile-pic {
             width: 80px;
             height: 80px;
-            border-radius: 50%; /* Makes it a circle */
+            border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
         }
 
         header h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
-        .intro-text { font-size: 1.1rem; color: var(--secondary); margin-bottom: 60px; max-width: 600px; }
+        .intro-text { font-size: 1.1rem; color: var(--secondary); margin-bottom: 40px; max-width: 600px; }
+
+        /* Read My Thoughts Button */
+        .cta-container { margin-bottom: 60px; }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
 
         section { margin-bottom: 60px; }
         h2 { font-size: 1.1rem; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 25px; }
-        
         .status-quote { font-style: italic; color: var(--secondary); border-left: 2px solid var(--border); padding-left: 20px; }
 
         footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
 
         @media (max-width: 600px) {
             nav { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .nav-links { margin-left: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-            .nav-links a { margin-left: 0; margin-right: 15px; }
+            .nav-right { width: 100%; justify-content: space-between; }
         }
     </style>
 </head>
@@ -63,30 +100,33 @@
 
     <nav>
         <a href="index.html" class="logo">akanksha.</a>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="thoughts.html">Thoughts</a>
-            <a href="https://x.com/akanksha16s" target="_blank">X </a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="thoughts.html">Thoughts</a>
+                <a href="https://x.com/akanksha16s" target="_blank">X</a>
+            </div>
+            <button id="theme-toggle">Dark Mode</button>
         </div>
     </nav>
 
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search thoughts, poems, or topics...">
-    </div>
-
     <header>
         <div class="profile-header">
-            <img src="profile.jpg" alt="Akanksha" class="profile-pic">. 
+            <img src="profile.jpg" alt="Akanksha" class="profile-pic">
             <h1>Hello!</h1>
         </div>
         <div class="intro-text">
             <p>I am a research scholar at the Indian Institute of Technology Mandi, Himachal Pradesh. I am working on climate change with the farmers of the Western Himalayas.</p>
             <br>
-            <p>In my quieter moments, I like to observe, read and write. This is just a peek into my inner world — my thoughts<p>
-               <br>
+            <p>In my quieter moments, I like to observe, read and write. This is just a peek into my inner world — my thoughts.</p>
+            <br>
             <p>This is my personal journal in public. Just me sharing whatever I feel like writing.</p>
         </div>
     </header>
+
+    <div class="cta-container">
+        <a href="thoughts.html" class="cta-button">Read my thoughts →</a>
+    </div>
 
     <section>
         <h2>About This Space</h2>
@@ -98,5 +138,18 @@
     </section>
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            toggleBtn.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+        });
+    </script>
 </body>
 </html>
