@@ -1,47 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akanksha | Guidelines for Chugli</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-   <style>
-    :root { 
-        --bg: #0f0f0f; 
-        --text: #eeeeee; 
-        --secondary: #999999; 
-        --border: #222222; 
-    }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); max-width: 650px; margin: 0 auto; padding: 40px 20px; line-height: 1.8; }
-    
-    .back-link { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
-    header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-    
-    h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; }
-    h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 30px; color: #fff; }
-    
-    /* Bullet points for Chugli Rules */
-    .rules-list li::before { content: "•"; color: var(--secondary); margin-right: 10px; }
-    
-    .signature-block { margin-top: 50px; border-top: 1px solid var(--border); padding-top: 20px; color: var(--secondary); font-style: italic; }
-    
-    footer { margin-top: 80px; text-align: center; color: var(--secondary); font-size: 0.8rem; }
-</style>
+    <style>
+        /* Theme Variables */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary: #666666;
+            --border: #eaeaea;
+            --header-color: #1a1a1a;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f0f0f;
+            --text: #eeeeee;
+            --secondary: #999999;
+            --border: #222222;
+            --header-color: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 650px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            line-height: 1.8; 
+        }
+
+        /* Navigation & Toggle */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 40px; 
+        }
+        .back-link { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .post-meta { font-size: 0.75rem; color: var(--secondary); margin-bottom: 5px; display: block; }
+        
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--header-color); }
+        h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 30px; color: var(--header-color); }
+        
+        .content p { margin-bottom: 20px; }
+
+        /* Bullet points for Chugli Rules */
+        .rules-list { list-style: none; margin-top: 20px; }
+        .rules-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .rules-list li::before { 
+            content: "•"; 
+            color: var(--secondary); 
+            position: absolute; 
+            left: 0; 
+        }
+        
+        .signature-block { 
+            margin-top: 50px; 
+            border-top: 1px solid var(--border); 
+            padding-top: 20px; 
+            color: var(--secondary); 
+            font-style: italic; 
+        }
+        
+        footer { margin-top: 80px; text-align: center; color: var(--secondary); font-size: 0.8rem; }
+    </style>
 </head>
 <body>
-    <nav><a href="thoughts.html" class="back-link">← Back to Thoughts</a></nav>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Dark Mode</button>
+    </nav>
+
     <main>
         <header>
             <span class="post-meta">Satire • Policy</span>
             <h1>Chugli: Official Guidelines</h1>
         </header>
+
         <div class="content">
             <p>Chugli counts a person's weaknesses or constraints behind his/her back. It enables the chugalkhor to release all its negative energy towards the person in front of a third person, reducing mental agony and fostering emotional stability.</p>
+            
             <p>The All-India Chugli Association (AICA) has decided to define guidelines for the act of chugli. These rules aim to create awareness amongst the people involved in the act of chugli so that, together, we can create an atmosphere of healthy chugli. </p>
-            <p> Furthermore, there is the English term ‘back bitching’, which is believed to be a synonym for chugli. However, the AICA wants to clarify a very basic difference between the two. The latter is more of an emotion; it enables a strong emotional connection between two chugalkhors. In chugli, we do not hate the person whose chugli is being done. However, bitching sounds rude and derogatory because the root word is ‘bitch’.<p>
-              <p> Therefore, the AICA promotes chugli, but in no sort of way do we promote bitching.<p>  
+            
+            <p>Furthermore, there is the English term ‘back bitching’, which is believed to be a synonym for chugli. However, the AICA wants to clarify a very basic difference between the two. The latter is more of an emotion; it enables a strong emotional connection between two chugalkhors. In chugli, we do not hate the person whose chugli is being done. However, bitching sounds rude and derogatory because the root word is ‘bitch’.</p>
+            
+            <p>Therefore, the AICA promotes chugli, but in no sort of way do we promote bitching.</p>
                 
-                  <h2> Rules</h2>
+            <h2>Rules</h2>
             <ul class="rules-list">
                 <li>Never do chugli about serious issues like diseases or family setbacks.</li>
                 <li>Do not interrupt the flow of a chugalkhor.</li>
@@ -51,14 +115,4 @@
             </ul>
 
             <div class="signature-block">
-                <strong>Akanksha Singh</strong><br>
-                President, 
-                <p>All India Chugli Association<p>
-                    <p>Kamand<p>
-<p>Mandi- 175005<p>
-            </div>
-        </div>
-    </main>
-    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
-</body>
-</html>
+                <strong>Akanksha Singh</strong>
