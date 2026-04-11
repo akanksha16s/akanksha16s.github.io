@@ -21,6 +21,26 @@
             line-height: 1.9;
             -webkit-font-smoothing: antialiased;
         }
+        .author-ethics-note {
+            margin-top: 80px;
+            padding: 25px;
+            background: var(--border);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--secondary);
+            opacity: 0.9;
+        }
+
+        .author-ethics-note strong {
+            color: var(--text);
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.75rem;
+        }
 
         nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
         .back-link { text-decoration: none; color: var(--secondary); font-size: 0.9em; font-weight: 500; }
@@ -153,7 +173,11 @@
         <p class="ai-note">Images recreated from memory using AI.</p>
     </article>
 
-    <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
+    <div class="author-ethics-note">
+            <p><strong>Note on Process:</strong> This is a true account of my personal experiences. While the core narrative and emotions are entirely my own, I have used AI to help structure the prose and to recreate the visual memories of the tiger and the monkey as I saw them in my head. In the spirit of transparency, I believe in acknowledging the tools that helped bring these quiet moments to life.</p>
+        </div>
+    
+        <footer>© 2026 Akanksha • Built with simplicity and integrity ♡</footer>
 
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
