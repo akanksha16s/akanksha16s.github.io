@@ -38,7 +38,15 @@
 
         .content p { margin-bottom: 30px; }
         
-        /* Subtler highlight for key realizations */
+        .memory-snapshot {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 20px 0 40px 0;
+            filter: grayscale(10%) contrast(105%);
+            opacity: 0.95;
+        }
+
         .insight-block {
             color: var(--accent);
             padding: 10px 0 10px 25px;
@@ -70,7 +78,16 @@
             color: var(--text);
         }
 
-        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
+        .ai-note {
+            font-size: 0.75rem;
+            color: var(--secondary);
+            text-align: center;
+            margin-top: 80px;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        footer { margin-top: 40px; padding: 40px 0; border-top: 1px solid var(--border); font-size: 0.85em; color: var(--secondary); text-align: center; }
     </style>
 </head>
 <body>
@@ -90,9 +107,11 @@
             
             <p>One such moment happened in Udaipur, Rajasthan. We were staying inside the Sajjangarh Wildlife Sanctuary for a conference. It was late at night, and I couldn’t sleep. That phase after COVID… I used to have some anxieties. So I stepped out, just to walk, thinking it might help.</p>
 
-            <p>The place was quiet in a very different way. Not empty—just still. After walking for a while, I saw a few guards standing on a slightly raised structure. It felt odd that they were just standing there, so I went closer and climbed up.</p>
+            <p>The place was quiet in a very different way. Not empty—just still. After walking for a while, I saw a few guards standing on a slightly raised structure. It wasn’t exactly a terrace, but high enough to look over the area. It felt odd that they were just standing there, so I went closer and climbed up.</p>
 
             <p>And then I saw it. <strong>A glorious TIGER.</strong></p>
+
+            <img src="tiger_memory.png" alt="A hazy, atmospheric night memory of a tiger in the Udaipur sanctuary." class="memory-snapshot">
 
             <p>It was just there. Standing. Not doing anything. I don’t remember feeling scared. That’s what I find strange even now. It was such a powerful animal, right there, and yet there was no panic in me. I was just… still.</p>
 
@@ -108,10 +127,12 @@
 
             <p>There were monkeys everywhere. Not aggressive like the ones we are habitual of, but just sitting, resting, watching. Then I saw a baby monkey. It was sitting in its mother’s lap. Very small, probably just a few months old. Just watching. I don’t know why, but I stopped.</p>
 
+            <img src="monkey_memory.png" alt="A small baby monkey watching curiously from its mother's lap in the Palani Hills." class="memory-snapshot">
+
             <p>It kept looking at me, and then it tapped its mother and pointed towards us. It kept looking back and forth, like it was trying to understand what we were—two-legged creatures with different coloured skins.</p>
 
             <div class="insight-block">
-                In that moment, something felt very clear. The jungle had expressed itself to me. I was no longer the one observing—it was me who was being seen, understood, maybe even questioned. I felt… honoured. Honoured, like I was chosen to witness the jungle.
+                In that moment, something felt very clear. The jungle had expressed itself to me. I was no longer the one observing—it was me who was being seen, understood, maybe even questioned. I felt… honoured.
             </div>
 
             <div class="worship-section">
@@ -128,6 +149,8 @@
 
             <p class="final-thought">And if that is not what true worship is, then I don’t know what is.</p>
         </div>
+
+        <p class="ai-note">Images recreated from memory using AI.</p>
     </article>
 
     <footer>© 2026 Akanksha • Built with simplicity ♡</footer>
