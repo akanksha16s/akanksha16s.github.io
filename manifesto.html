@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICA | The Manifesto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        [data-theme="light"] { --bg: #fdfdfd; --text: #1a1a1a; --secondary: #666666; --border: #dddddd; --accent: #2c3e50; }
+        [data-theme="dark"] { --bg: #121212; --text: #e0e0e0; --secondary: #888888; --border: #333333; --accent: #ecf0f1; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s ease, color 0.3s ease; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            max-width: 720px; 
+            margin: 0 auto; 
+            padding: 60px 25px; 
+            line-height: 1.8;
+        }
+
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
+        .back-link { text-decoration: none; color: var(--secondary); font-size: 0.9em; }
+        #theme-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; }
+
+        .manifesto-card {
+            border: 1px solid var(--border);
+            padding: 60px 50px;
+            background: var(--bg);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        .seal {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; text-align: center; margin-bottom: 10px; color: var(--accent); }
+        .org-name { text-align: center; font-size: 0.9rem; color: var(--secondary); margin-bottom: 50px; font-weight: 500; }
+        
+        .intro { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 35px; text-align: justify; }
+
+        .content { font-family: 'Lora', serif; font-size: 1.1rem; }
+        .content p { margin-bottom: 25px; }
+
+        .list-item { margin-bottom: 30px; padding-left: 25px; border-left: 1.5px solid var(--accent); }
+        .list-item strong { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent); }
+
+        .closing { margin-top: 40px; font-weight: 500; }
+        .signature-block { margin-top: 60px; text-align: center; }
+        .flame-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--accent); margin-bottom: 20px; display: block; }
+        .pres-title { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); }
+
+        footer { margin-top: 80px; font-size: 0.75rem; text-align: center; color: var(--secondary); opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="thoughts.html" class="back-link">← Back to Thoughts</a>
+        <button id="theme-toggle">Toggle Mode</button>
+    </nav>
+
+    <div class="manifesto-card">
+        <span class="seal">Official Doctrine</span>
+        <h1>The Virtue of Jealousy</h1>
+        <p class="org-name">A Manifesto by the All India Chugli Association (AICA)</p>
+        
+        <div class="content">
+            <p class="intro">From time immemorial, we have been taught that jealousy is a negative feeling, born out of insecurity. I strongly disagree with this view. I believe jealousy is a vital and sophisticated emotion that humans have developed through evolution.</p>
+            
+            <p>As President of the All India Chugli Association (AICA), I present the following reasons why jealousy should be recognised as a positive force:</p>
+
+            <div class="list-item">
+                1. It serves as an <strong>internal compass</strong>, clearly showing us what we truly desire and what is currently missing from our lives.
+            </div>
+
+            <div class="list-item">
+                2. It <strong>promotes humility</strong> by reminding us that we are only human, not divine beings.
+            </div>
+
+            <div class="list-item">
+                3. It <strong>provides powerful motivation</strong>, encouraging us to stay disciplined and work consistently toward our goals.
+            </div>
+
+            <div class="list-item">
+                4. When expressed honestly to the person we are jealous of, it becomes one of the <strong>highest compliments possible</strong>—an act of transparency that can deepen relationships.
+            </div>
+
+            <div class="list-item">
+                5. It <strong>sharpens the mind</strong> and enhances one's sense of humour, as the author of this manifesto can personally attest.
+            </div>
+
+            <p>Therefore, I believe the most effective way to engage with jealousy is through complete acceptance. Acceptance is the key.</p>
+            
+            <p>As President of AICA, we fully endorse the experience of jealousy. No one should feel ashamed of this powerful evolutionary gift.</p>
+
+            <div class="signature-block">
+                <span class="flame-quote">"May the flame of jealousy continue to burn within you!"</span>
+                <span class="pres-title">The President, AICA</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>© 2026 Akanksha • Classified AICA Material</footer>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+        });
+    </script>
+</body>
+</html>
