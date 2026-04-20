@@ -56,12 +56,45 @@
         .list-item strong { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--accent); }
 
         .closing { margin-top: 40px; font-weight: 500; }
-        .signature-block { margin-top: 60px; text-align: center; }
-        .flame-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--accent); margin-bottom: 20px; display: block; }
-        .pres-title { font-family: 'Inter', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--secondary); }
+        .signature-block { 
+            margin-top: 80px; 
+            text-align: center; 
+            border-top: 1px solid var(--border);
+            padding-top: 50px;
+        }
+        
+        .flame-quote { 
+            /* Using Lora to match the body text, just italicized */
+            font-family: 'Lora', serif; 
+            font-style: italic; 
+            font-size: 1.25rem; 
+            color: var(--accent); 
+            margin-bottom: 45px; 
+            display: block;
+            opacity: 0.9;
+        }
 
-        footer { margin-top: 80px; font-size: 0.75rem; text-align: center; color: var(--secondary); opacity: 0.5; }
-    </style>
+        .authority-details { 
+            font-family: 'Inter', sans-serif; 
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .authority-details .name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+
+        .authority-details .title, 
+        .authority-details .location {
+            font-weight: 400; /* Matching the weight to keep it clean */
+            font-size: 0.9rem;
+            color: var(--secondary);
+            text-transform: none; /* Keeps it natural */
+        }
 </head>
 <body>
     <nav>
@@ -106,9 +139,9 @@
             <div class="signature-block">
                 <span class="flame-quote">"May the flame of jealousy continue to burn within you!"</span>
                 <div class="authority-details">
-                    <strong>Akanksha Singh</strong><br>
-                    President, AICA<br>
-                    Chandrataal - B8
+                    <span class="name">Akanksha Singh</span>
+                    <span class="title">President, AICA</span>
+                    <span class="location">Chandrataal - B8</span>
                 </div>
             </div>
     </div>
